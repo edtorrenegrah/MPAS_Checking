@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!-- Main Menu Related Info -->
+        <menuitem name="MPAS Checking Request Log"
+            id="base.mpas_checking_root"
+            sequence="60"/>
+
+<!-- Sub Menu Related Info -->
+       <menuitem id="menu_mpas_checking_root" name="MPAS Checking Request Log"
+            parent="base.mpas_checking_root" sequence="1" />
+
+
+<!--Checking info-->
+
+    <!--Daily Transaction List View-->
+    <record id="view_mpas_checking_tree" model="ir.ui.view">
+        <field name="name">mpas.checking.tree</field>
+        <field name="model">mpas.checking</field>
+        <field name="arch" type="xml">
+            <!-- this will be our title of list/tree view -->
+            <tree string="Order/Inventory Request Log">
+                <!-- these will automatically map table headers for our list view -->
+                <field name="t_type"/>
+                <field name="c_id"/>
+                <field name="product1"/>
+		        <field name="date"/>
+		        <field name="amount"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Daily Transaction Form View-->
+    <record id="view_daily_transaction_form" model="ir.ui.view">
+        <field name="name">daily.transaction.form.view</field>
+        <field name="model">daily.transaction</field>
+        <field name="arch" type="xml">
+            <!-- this will be our title of list/tree view -->
+            <form string="Order/Inventory Request Log" version="7.0">
+                <group>
+                    <field name="t_type"/>
+                    <field name="c_id"/>
+                    <field name="product1"/>
+                    <field name="date"/>
+                    <field name="amount"/>
+                    <button name="View" string="View" class="oe_highlight"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_mpas_checking" model="ir.actions.act_window">
+        <field name="name">MPAS Checking Log</field>
+        <field name="res_model">mpas.checking</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id"  eval="False"/>
+        <field name="context">{}</field>
+        <field name="help">Search for Employee Checks.</field>
+    </record>
+
+    <menuitem action="action_mpas_checking"
+        id="menu_action_mpas_checking"
+        parent="menu_daily_transaction_root" sequence="20"/>
+
+
+    </data>
+</openerp>
+
