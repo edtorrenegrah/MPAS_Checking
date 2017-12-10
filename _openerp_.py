@@ -6,7 +6,7 @@
     This is an odoo accounting module that will be filled out by the accounting department of a firm. It will manage and log all checks created by the company.
 ==========================================
     """,
-    'author': 'Alexander Kaczynski, Paul Miceli, Harry Torrenegra, Dr. William Tephenhart',
+    'author': 'Alexander Kaczynski, dfs, Paul Miceli, Harry Torrenegra, Dr. William Tephenhart',
     'depends': [],
     'data': ['mpas_checking_view.xml'],
     'demo': [],
